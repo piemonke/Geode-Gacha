@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //Mount routers
 app.use("/", indexRouter);
-// app.use("/rocks", rocksRouter);
+app.use("/rocks", rocksRouter);
 
 app.listen(port, function() {
     console.log(`Express is listening on port:${port}`);
