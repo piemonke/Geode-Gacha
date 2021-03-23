@@ -12,12 +12,12 @@ function index(req, res) {
 
 //render new user page
 function signUp(req, res) {
-
+    res.render("index/signup");
 }
 
 //render login page
 function signIn(req, res) {
-
+    res.render("index/signin");
 }
 
 //add new user to database
