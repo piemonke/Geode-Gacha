@@ -5,7 +5,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const port = process.env.PORT;
-
 const connectionURI = process.env.MONGODB_URI; 
 
 // const session = require("express-session");
@@ -19,6 +18,5 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.listen(port, function() {
-    console.log(connectionURI);
     console.log(`Express is listening on port:${port}`);
 });
