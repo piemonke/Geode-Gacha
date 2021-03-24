@@ -2,14 +2,30 @@
 const express = require("express");
 const morgan = require("morgan");
 
-//dotenv setup
+
+// const session = require("express-session");
+
+//dotenv PORT setup
 const dotenv = require("dotenv");
 dotenv.config();
 
 const port = process.env.PORT;
 const connectionURI = process.env.MONGODB_URI; 
 
-// const session = require("express-session");
+//mongoose setup and connecting to database
+const mongoose = require("mongoose");
+
+const db = mongoose.connection;
+
+mongoose.connect(connectionURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+});
+
+db.on("connected", function() {
+    console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
+});
 
 //router definitions and requirements
 const indexRouter = require("./routes/index");
