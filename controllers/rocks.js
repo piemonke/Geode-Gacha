@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Rock = require("../models/rock");
 
 module.exports = {
     profile,
@@ -17,9 +18,35 @@ function profile(req, res) {
 
 }
 
-//render gacha page
+//render gacha page and add rock to inventory
 function gacha(req, res) {
-    res.render("rocks/gacha");
+    //Perform gacha "roll"
+    
+    Rock.find({}, function(err, rocks) {
+        //Math.rand
+        // let x = Math.random();
+
+        //select rock based off number roll from database
+        rock = rocks[0];
+        console.log(rock);
+        //get user to add rock too
+        User.findById(req.params.id, function(err, user){
+            //add rock to users inventory
+            // console.log(user);
+            user.inventory.push(rock._id);
+
+            //set timer in users inventory to
+
+            //render page showing what they got
+            //maybe change to animation later
+            user.save(function(err) {
+                res.render("rocks/gacha", {
+                    rock,
+                });
+            });
+        });
+    });
+    
 }
 
 //take rock from gacha page and add to users inventory in database

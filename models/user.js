@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     username: { type: String, required: true, unique: true},
     password: { type: String, required: true},
-    Inventory: [{ type: Schema.Types.ObjectId, ref: "Rock"}],
+    inventory: [{ type: Schema.Types.ObjectId, ref: "Rock"}],
     timer: Date,
 }, {
     timestamps: true
