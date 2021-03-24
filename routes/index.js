@@ -8,10 +8,11 @@ function routerPath() {
     //GET requests
     router.get("/", indexCtrl.index)
     router.get("/signup", indexCtrl.signUp);
-    router.get("/login", indexCtrl.signIn);
+    router.get("/signin", indexCtrl.signIn);
 
     //POST requests
     router.post("/signup", indexCtrl.new);
+    router.post("/login", indexCtrl.login);
 
     return router;
 }

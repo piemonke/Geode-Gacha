@@ -1,3 +1,5 @@
+const User = require("../models/user");
+
 module.exports = {
     profile,
     gacha,
@@ -7,7 +9,12 @@ module.exports = {
 
 //render profile page
 function profile(req, res) {
-    res.render("rocks/profile");
+    User.findById(req.params.id, function(err, user) {
+        res.render("rocks/profile", {
+            user,
+        });
+    })
+
 }
 
 //render gacha page

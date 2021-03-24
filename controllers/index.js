@@ -7,6 +7,7 @@ module.exports = {
     signUp,
     signIn,
     new: newUser,
+    login,
 }
 
 
@@ -30,6 +31,25 @@ function newUser(req, res) {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(SALT_ROUNDS));
     User.create(req.body, function(err, newUser) {
         console.log(newUser);
-        res.redirect(`/rocks/${newUser._id}`);
-    })
+        res.redirect("/signin");
+    });
+}
+
+function login(req, res) {
+    User.findOne({
+        username: req.body.username
+    }, function(err, foundUser) {
+        if (foundUser === null) {
+            res.redirect("/signin");
+        } else {
+            const doesPasswordMatch = bcrypt.compareSync(req.body.password, foundUser.password);
+            if(doesPasswordMatch) {
+                req.session.userId = foundUser._id;
+                console.log(req.session);
+                res.redirect(`/rocks/${foundUser._id}`);
+            } else {
+                res.redirect("/signin");
+            }
+        }
+    });
 }

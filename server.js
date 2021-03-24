@@ -1,9 +1,9 @@
 //extension requirements
 const express = require("express");
 const morgan = require("morgan");
+const session = require("express-session");
 
 
-// const session = require("express-session");
 
 //dotenv PORT setup
 const dotenv = require("dotenv");
@@ -38,6 +38,14 @@ app.set("view engine", "ejs");
 app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+
+app.use(
+    session({
+        secret: "supersecret",
+        resave: false,
+        saveUninitialized: false,
+    })
+);
 
 //Mount routers
 app.use("/", indexRouter);
