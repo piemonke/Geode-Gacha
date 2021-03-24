@@ -5,6 +5,7 @@ module.exports = {
     profile,
     gacha,
     delete: removeRock,
+    update,
 }
 
 //render profile page
@@ -53,7 +54,15 @@ function removeRock(req, res) {
     User.findById(req.params.id, function(err, user){
         user.inventory.splice(req.params.num, 1);
         user.save(function(err){
-            res.redirect(`/rocks/${req.params.id}`)
+            res.redirect(`/rocks/${req.params.id}`);
+        });
+    });
+}
+
+function update(req, res) {
+    User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
+        user.save(function(err){
+            res.redirect(`/rocks/${req.params.id}`);            
         });
     });
 }

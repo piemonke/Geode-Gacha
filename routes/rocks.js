@@ -11,6 +11,9 @@ function routerPath() {
 
     //POST requests
 
+    //PUT requests
+    router.put("/:id", rockCtrl.update);
+
     //DELETE requests
     router.delete("/:id/:num", rockCtrl.delete);
 

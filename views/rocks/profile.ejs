@@ -10,7 +10,13 @@
     <h1>Profile Exists</h1>
     <%= user.username %>
     <br>
-
+    <br>
+    <div>
+        <form action="/rocks/<%= user._id %>?_method=PUT" method="post">
+            <input type="text" name="profile" value="<%= user.profile %>">
+            <button type="submit">Update User Description</button>
+        </form>
+    </div>
     <% let count = 0 %>
     <% user.inventory.forEach(rock => { %>
         <div>
