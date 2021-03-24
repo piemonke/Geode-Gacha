@@ -29,7 +29,7 @@ function signIn(req, res) {
 function newUser(req, res) {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(SALT_ROUNDS));
     User.create(req.body, function(err, newUser) {
-        console.log(err);
-        res.redirect("/");
+        console.log(newUser);
+        res.redirect(`/rocks/${newUser._id}`);
     })
 }
