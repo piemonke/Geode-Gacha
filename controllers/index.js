@@ -29,6 +29,7 @@ function signIn(req, res) {
 //add new user to database
 function newUser(req, res) {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(SALT_ROUNDS));
+    req.body.profile = "Tell others a bit about yourself";
     User.create(req.body, function(err, newUser) {
         console.log(newUser);
         res.redirect("/signin");

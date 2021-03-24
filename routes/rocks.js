@@ -10,10 +10,9 @@ function routerPath() {
     router.get("/:id/gacha", rockCtrl.gacha);
 
     //POST requests
-    router.get("/:id", rockCtrl.new);
 
     //DELETE requests
-    router.get("/:id", rockCtrl.delete);
+    router.delete("/:id/:num", rockCtrl.delete);
 
     return router;
 }

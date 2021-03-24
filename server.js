@@ -2,6 +2,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const session = require("express-session");
+const methodOverride = require("method-override");
 
 
 
@@ -38,6 +39,7 @@ app.set("view engine", "ejs");
 app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
 
 app.use(
     session({

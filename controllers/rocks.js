@@ -4,7 +4,6 @@ const Rock = require("../models/rock");
 module.exports = {
     profile,
     gacha,
-    new: addRock,
     delete: removeRock,
 }
 
@@ -36,9 +35,10 @@ function gacha(req, res) {
 
             //render page showing what they got
             //maybe change to animation later
-            user.save(function(err) {
+            user.save(function(err){
                 res.render("rocks/gacha", {
                     rock,
+                    user: req.params.id,
                 });
             });
         });
@@ -46,14 +46,14 @@ function gacha(req, res) {
     
 }
 
-//take rock from gacha page and add to users inventory in database
-//redirect back to user profile
-function addRock(req, res) {
-
-}
 
 //remove rock from users inventory
 //redirect back to users profile
 function removeRock(req, res) {
-    
+    User.findById(req.params.id, function(err, user){
+        user.inventory.splice(req.params.num, 1);
+        user.save(function(err){
+            res.redirect(`/rocks/${req.params.id}`)
+        });
+    });
 }

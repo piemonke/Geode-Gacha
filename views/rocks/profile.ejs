@@ -9,11 +9,20 @@
 <body>
     <h1>Profile Exists</h1>
     <%= user.username %>
+    <br>
 
+    <% let count = 0 %>
     <% user.inventory.forEach(rock => { %>
-        <h6><%= rock.name %></h6>
-        <p><%= rock.rarity %></p>
-        <p><%= rock.image %></p>
+        <div>
+            <h6><%= rock.name %></h6>
+            <p><%= rock.rarity %></p>
+            <p><%= rock.image %></p>
+            <form action="/rocks/<%= user._id %>/<%= count %>?_method=DELETE" method="post">
+                <button type="submit">Remove from inventory</button>
+            </form>
+            <% count++ %>
+        </div>
+        
     <% }); %>
 
     <a href="<%= user._id %>/gacha">Get rocks</a>
