@@ -10,12 +10,11 @@ module.exports = {
 
 //render profile page
 function profile(req, res) {
-    User.findById(req.params.id, function(err, user) {
+    User.findById(req.params.id).populate("inventory").exec(function(err, user){
         res.render("rocks/profile", {
             user,
         });
-    })
-
+    });
 }
 
 //render gacha page and add rock to inventory
@@ -28,11 +27,9 @@ function gacha(req, res) {
 
         //select rock based off number roll from database
         rock = rocks[0];
-        console.log(rock);
         //get user to add rock too
         User.findById(req.params.id, function(err, user){
             //add rock to users inventory
-            // console.log(user);
             user.inventory.push(rock._id);
 
             //set timer in users inventory to

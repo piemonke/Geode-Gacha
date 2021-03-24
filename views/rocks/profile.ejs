@@ -10,6 +10,14 @@
     <h1>Profile Exists</h1>
     <%= user.username %>
 
+    <% user.inventory.forEach(rock => { %>
+        <h6><%= rock.name %></h6>
+        <p><%= rock.rarity %></p>
+        <p><%= rock.image %></p>
+    <% }); %>
+
     <a href="<%= user._id %>/gacha">Get rocks</a>
+
+
 </body>
 </html>
