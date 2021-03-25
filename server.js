@@ -10,7 +10,7 @@ const methodOverride = require("method-override");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const connectionURI = process.env.MONGODB_URI; 
 
 //mongoose setup and connecting to database
