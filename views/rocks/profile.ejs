@@ -1,19 +1,26 @@
 <%- include("../partials/header") -%>
-    <h1><%= user.username %>'s Rock Collection</h1>
-    
-    <!-- for later use with proper user authentication -->
-    <!-- <%= user.username %>
-    <% if(userAuth) { %>
-        <p>you are viewing this page as an authorized user</p>
-    <% } %> -->
-    <br>
-    <br>
-    <div>
-        <form action="/rocks/<%= user._id %>?_method=PUT" method="post" class="profile">
-            <input type="text" name="profile" value="<%= user.profile %>"><br>
-            <button type="submit">Update User Description</button>
-        </form>
+    <div class="center">
+        <h1><%= user.username %>'s Rock Collection</h1>
+        
+        <!-- for later use with proper user authentication -->
+        <!-- <%= user.username %>
+            <% if(userAuth) { %>
+                <p>you are viewing this page as an authorized user</p>
+                <% } %> -->
+        <br>
+        <br>
+        <div class="profile">
+            <form action="/rocks/<%= user._id %>?_method=PUT" method="post" class="profile">
+                <!-- <input type="text" name="profile" value="<%= user.profile %>"><br> -->
+                <textarea name="profile" id="" cols="30" rows="10"><%= user.profile %></textarea>
+                <button type="submit">Update User Description</button>
+            </form>
+        </div>
+        <br>
+        <a href="<%= user._id %>/gacha">Get rocks</a>
     </div>
+    <br>
+    <br>
     <% let count = 0 %>
     <div class="inventory">
 
@@ -31,7 +38,6 @@
         <% }); %>
     </div>
 
-    <a href="<%= user._id %>/gacha">Get rocks</a>
 
 
 </body>
