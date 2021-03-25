@@ -2,26 +2,68 @@
     font-family: verdana;
 }
 
+body {
+    background-image: url("/images/desert.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .center {
 
 }
+
+
 
 .inventory {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-content: space-around;
 }
 
 .rock {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     width: 18vw;
-    /* padding: 0px 25px 0px 25px; */
+    height: 360px;
+    border: 3px solid gray;
+    border-radius: 15px;
+    background-color: rgba(30, 30, 30, 0.3);
 }
+
 .rock > img {
-    width: 18vw;
+    width: 13vw;
+}
+
+.rock > form {
+    margin-top: auto;
+}
+
+.rock > form > button {
+    color: white;
+    background-color: red;
+}
+
+.gacha {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    border: 3px solid gray;
+    border-radius: 15px;
+    width: 50vw;
+}
+
+.gacha > img {
+    width: 50vw;
 }
 
 @media (max-width: 1080px) {
     .rock {
         width: 40vw;
+    }
+
+    .rock > img {
+        width: 30vw;
     }
 }

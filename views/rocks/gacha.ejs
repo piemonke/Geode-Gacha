@@ -1,6 +1,11 @@
 <%- include("../partials/header") -%>
-    <h1>Rock Exists</h1>
-    <p><%= rock.name %> added to inventory</p>
-    <a href="/rocks/<%= user %>">Back to profile</a>
+    <div class="gacha">
+
+        <h1>You found a <%= rock.name %></h1>
+
+        <img src="/images/<%= rock.image %>" alt="<%= rock.name %>">
+        <p><%= rock.name %> added to inventory</p>
+        <a href="/rocks/<%= user %>">Back to profile</a>
+    </div>
 </body>
 </html>

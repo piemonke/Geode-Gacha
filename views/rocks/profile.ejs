@@ -1,14 +1,16 @@
 <%- include("../partials/header") -%>
-    <h1>Profile Exists</h1>
-    <%= user.username %>
+    <h1><%= user.username %>'s Rock Collection</h1>
+    
+    <!-- for later use with proper user authentication -->
+    <!-- <%= user.username %>
     <% if(userAuth) { %>
         <p>you are viewing this page as an authorized user</p>
-    <% } %>
+    <% } %> -->
     <br>
     <br>
     <div>
-        <form action="/rocks/<%= user._id %>?_method=PUT" method="post">
-            <input type="text" name="profile" value="<%= user.profile %>">
+        <form action="/rocks/<%= user._id %>?_method=PUT" method="post" class="profile">
+            <input type="text" name="profile" value="<%= user.profile %>"><br>
             <button type="submit">Update User Description</button>
         </form>
     </div>
@@ -21,7 +23,7 @@
                 <p><%= rock.rarity %></p>
                 <img src="/images/<%= rock.image %>" alt="<%= rock.name %>">
                 <form action="/rocks/<%= user._id %>/<%= count %>?_method=DELETE" method="post">
-                    <button type="submit">Remove from inventory</button>
+                    <button type="submit">Delete</button>
                 </form>
                 <% count++ %>
             </div>
