@@ -3,5 +3,25 @@
 }
 
 .center {
-    
+
+}
+
+.inventory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.rock {
+    width: 18vw;
+    /* padding: 0px 25px 0px 25px; */
+}
+.rock > img {
+    width: 18vw;
+}
+
+@media (max-width: 1080px) {
+    .rock {
+        width: 40vw;
+    }
 }

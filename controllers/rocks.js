@@ -54,7 +54,6 @@ function gacha(req, res) {
         let limit = rocks.length;
         let secondRoll = Math.floor(Math.random() * limit);
         rock = rocks[secondRoll];
-        
         //get user to add rock too
         User.findById(req.params.id, function(err, user){
             //add rock to users inventory
