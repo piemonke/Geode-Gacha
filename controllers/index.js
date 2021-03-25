@@ -13,17 +13,23 @@ module.exports = {
 
 //render "home" page
 function index(req, res) {
-    res.render("index/index");
+    res.render("index/index", {
+        title: "Geode Gacha",
+    });
 }
 
 //render new user page
 function signUp(req, res) {
-    res.render("index/signup");
+    res.render("index/signup", {
+        title: "",
+    });
 }
 
 //render login page
 function signIn(req, res) {
-    res.render("index/signin");
+    res.render("index/signin", {
+        title: "",
+    });
 }
 
 //add new user to database

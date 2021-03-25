@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blegh</title>
-</head>
-<body>
-    <h1>FORMS FOR TESTING PURPOSES</h1>
-    <h3>NEW USERS</h3>
-    <form action="/signup" method="post">
-        <input type="text" name="username">
-        <input type="password" name="password">
-        <button type="submit">Enter</button>
-    </form>
-    <br>
-    <br>
-    <h3>SIGN IN</h3>
-    <form action="/login" method="post">
-        <input type="text" name="username">
-        <input type="password" name="password">
-        <button type="submit">Enter</button>
-    </form>
+<%- include("../partials/header") %>
+    <div class="">
+        <h1>Welcome to Geode Gacha</h1>
+        <p>The digital rock collecting web-app.</p>
+
+        <h3>NEW USERS</h3>
+        <form action="/signup" method="post">
+            <input type="text" name="username">
+            <input type="password" name="password">
+            <button type="submit">Sign Up</button>
+        </form>
+        <br>
+        <br>
+        <h3>SIGN IN</h3>
+        <form action="/login" method="post">
+            <input type="text" name="username">
+            <input type="password" name="password">
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
 </body>
 </html>

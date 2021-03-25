@@ -12,6 +12,7 @@ module.exports = {
 function profile(req, res) {
     User.findById(req.params.id).populate("inventory").exec(function(err, user){
         res.render("rocks/profile", {
+            title: `${user.username}'s Geode Collection`,
             user,
         });
     });
@@ -38,6 +39,7 @@ function gacha(req, res) {
             //maybe change to animation later
             user.save(function(err){
                 res.render("rocks/gacha", {
+                    title: `${rock.name}`,
                     rock,
                     user: req.params.id,
                 });
@@ -59,6 +61,8 @@ function removeRock(req, res) {
     });
 }
 
+//update users profile description
+//redirect back to users profile
 function update(req, res) {
     User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
         user.save(function(err){
@@ -66,3 +70,8 @@ function update(req, res) {
         });
     });
 }
+
+//general function for testing users authentication
+//return true if user is owner of profile
+//return false if user is viewing somebody else's profile
+function userAuth()
