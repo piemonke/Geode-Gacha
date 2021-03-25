@@ -33,14 +33,28 @@ function profile(req, res) {
 
 //render gacha page and add rock to inventory
 function gacha(req, res) {
-    //Perform gacha "roll"
-    
-    Rock.find({}, function(err, rocks) {
-        //Math.rand
-        // let x = Math.random();
+    //Perform gacha roll for rarity of rock
+    //create a percent chance
+    let roll = Math.floor(Math.random() * (100 - 1) + 1);
+    let rarity;
 
-        //select rock based off number roll from database
-        rock = rocks[0];
+    //assign rarity based off roll
+    //thresholds determine percentages
+    if(roll > 90){
+        rarity = "rare";
+    } else if(roll > 57){
+        rarity = "uncommon";
+    } else {
+        rarity = "common";
+    }
+    
+    Rock.find({ rarity: rarity,}, function(err, rocks) {
+
+        //perform second roll to give random rock from rarity selected
+        let limit = rocks.length;
+        let secondRoll = Math.floor(Math.random() * limit);
+        rock = rocks[secondRoll];
+        
         //get user to add rock too
         User.findById(req.params.id, function(err, user){
             //add rock to users inventory

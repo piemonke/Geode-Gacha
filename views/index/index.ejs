@@ -1,22 +1,24 @@
 <%- include("../partials/header") %>
-    <div class="">
+    <div class="box center">
         <h1>Welcome to Geode Gacha</h1>
         <p>The digital rock collecting web-app.</p>
 
-        <h3>NEW USERS</h3>
-        <form action="/signup" method="post">
-            <input type="text" name="username">
-            <input type="password" name="password">
-            <button type="submit">Sign Up</button>
-        </form>
-        <br>
-        <br>
-        <h3>SIGN IN</h3>
-        <form action="/login" method="post">
-            <input type="text" name="username">
-            <input type="password" name="password">
-            <button type="submit">Sign In</button>
-        </form>
+        <div class="left">
+            <h3>NEW USERS</h3>
+            <form action="/signup" method="post">
+                <input type="text" name="username" placeholder="USERNAME" autocomplete="off"><br>
+                <input type="password" name="password" placeholder="PASSWORD" autocomplete="off"><br>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="right">
+            <h3>SIGN IN</h3>
+            <form action="/login" method="post">
+                <input type="text" name="username" placeholder="USERNAME" autocomplete="off"><br>
+                <input type="password" name="password" placeholder="PASSWORD" autocomplete="off"><br>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
