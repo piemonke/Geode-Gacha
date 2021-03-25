@@ -1,6 +1,9 @@
 <%- include("../partials/header") -%>
     <h1>Profile Exists</h1>
     <%= user.username %>
+    <% if(userAuth) { %>
+        <p>you are viewing this page as an authorized user</p>
+    <% } %>
     <br>
     <br>
     <div>

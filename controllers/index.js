@@ -33,14 +33,16 @@ function signIn(req, res) {
 }
 
 //add new user to database
+//create session and redirect to their profile
 function newUser(req, res) {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(SALT_ROUNDS));
     req.body.profile = "Tell others a bit about yourself";
     User.create(req.body, function(err, newUser) {
         console.log(newUser);
-        res.redirect("/signin");
+        res.redirect(`/rocks/${newUser._id}`);
     });
 }
+
 
 function login(req, res) {
     User.findOne({

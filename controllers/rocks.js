@@ -11,9 +11,22 @@ module.exports = {
 //render profile page
 function profile(req, res) {
     User.findById(req.params.id).populate("inventory").exec(function(err, user){
+
+        //test user authorization
+        //store into variable
+        //if true, ejs shows features such as updating profile and rolling gacha
+        //if false, those features are hidden, page is only for viewing
+        let userAuth;
+        if(req.session.userId === user._id) {
+            userAuth = true;
+        } else {
+            userAuth = false;
+        }
+        console.log(userAuth);
         res.render("rocks/profile", {
             title: `${user.username}'s Geode Collection`,
             user,
+            userAuth,
         });
     });
 }
@@ -71,7 +84,3 @@ function update(req, res) {
     });
 }
 
-//general function for testing users authentication
-//return true if user is owner of profile
-//return false if user is viewing somebody else's profile
-function userAuth()
