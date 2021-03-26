@@ -5,7 +5,7 @@ It makes use of cracking open geodes, rocks with crystalline formations inside t
 A working deployed version of what this looks like can be found here: https://geode-gacha.herokuapp.com/
 
 ![Landing Page](https://cdn.discordapp.com/attachments/549737150111809546/824792229511036978/unknown.png)
-![Profile Page](https://cdn.discordapp.com/attachments/549737150111809546/824792321769340968/unknown.png)
+![Profile Page](https://cdn.discordapp.com/attachments/549737150111809546/824794985475735592/unknown.png)
 ![Gacha Page](https://cdn.discordapp.com/attachments/549737150111809546/824792391948173332/unknown.png)
 
 ### Technologies used:
