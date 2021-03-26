@@ -18,6 +18,8 @@ A working deployed version of what this looks like can be found here: https://ge
 7. Mongoose
 8. Bcrypt
 9. Morgan
+10. dotenv
+11. method-override
 
 ### Installation:
 1. Clone down this branch
